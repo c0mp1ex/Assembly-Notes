@@ -1,0 +1,68 @@
+检测点2.1
+
+
+(1)
+
+MOV AX,62627  AX = F4A3H
+MOV AH,31H AX = 3100H
+MOV AL,23H AX = 0023H
+ADD AX,AX AX = 0046H
+MOV BX,826CH BX = 826CH
+MOV CX,AX CX = 0046H
+MOV AX,BX AX = 826CH
+ADD AX,BX AX = 04D8H
+MOV AL,BH AX = 0482H
+MOV AH,BL AX = 6C82H
+ADD AH,AH AX = D800H
+ADD AL,6 AX = D806H
+ADD AL,AL AX = D80CH
+MOV AX,CX AX = 0046H
+
+
+
+(2)
+
+MOV AX,0002H
+ADD AX,AX  AX = 4H 
+ADD AX,AX  AX = 8H
+ADD AX,AX  AX = 10H
+
+
+
+检测点2.2 
+
+(1)
+00010H - 1000EH
+
+(2)
+
+1000H - 2000H
+
+
+
+检测点2.3
+
+(1)MOV AX,6622H
+(2)JMP 1000:3  CS:IP=10003H
+(3)MOV AX,0000
+(4)MOV BX,AX
+(5)JMP BX  IP=BX=0000
+(6)MOV AX,0123H
+(7)转到(3)
+
+
+2.9 - 2.12 小结
+
+（1）段地址在8086CPU的段寄存器中存放。当8086CPU要访问内存时，由段寄存器提供
+内存单元的段地址。8086CPU有4个段寄存器，其中CS用来存放指令的短地址。
+（2)CS存放指令的段地址，IP存放指令的偏移地址。8086CPU机中，任意时刻，CPU
+将CS:IP指向的内容当作指令来执行。
+（3）8086CPU的工作过程：
+
+1.从CS：IP指向的内存单元中读取指令，读取的指令进入指令缓冲器；
+2.IP指向下一条指令；
+3.执行指令。
+（4）8086CPU提供转移指令修改CS.IP的内容（jmp）
+
+检测点2.3
+
